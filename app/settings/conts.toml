@@ -1,0 +1,29 @@
+# Open API parameters
+OPEN_API_TITLE = "API Hub"
+OPEN_API_DESCRIPTION = "Demo API over Postgres database built with FastAPI."
+
+# Log
+LOG_LEVEL="info"
+
+# Authentication service constants
+AUTH_TAGS = ["Authentication"]
+AUTH_URL = "token"
+
+TOKEN_TYPE = "bearer"
+TOKEN_EXPIRE_MINUTES = 60
+
+# Algorithm used to sign the JWT tokens
+TOKEN_ALGORITHM = "HS256"
+
+# Movies service constants
+MOVIES_TAGS = ["Movies"]
+MOVIES_URL = "movies"
+MOVIES_URL_NEW = "new"
+
+# AWS
+AWS_S3_TAGS = ["AWS", "S3"]
+
+
+AWS_DYNAMODB_TAGS = ["AWS", "DynamoDB"]
+AWS_EC2_TAGS = ["AWS", "EC2"]
+AWS_CLOUDWATCH_TAGS = ["AWS", "CloudWatch"]
