@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}S3{% endblock %} {% block head %} {{
+super() }}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/base.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', path='/css/s3.css') }}" />
+{% endblock %} {% block aside %} {{ super() }}
+<script>
+  const activeLink = document.querySelector("aside a#s3-link"),
+    parentAccordion = activeLink.closest("details");
+  activeLink.setAttribute("aria-current", "page"),
+    parentAccordion.setAttribute("open", "true");
+</script>
+{% endblock %} {% block content %}
+<section>
+  <article>
+    <form method="post" action="/aws/s3/upload" enctype="multipart/form-data">
+      <!-- File browser -->
+      <label for="file"
+        >File browser
+        <input type="file" id="file" name="file" />
+      </label>
+
+      <label for="target">Target Path</label>
+      <input
+        type="text"
+        id="target"
+        name="target"
+        placeholder="directory/newfilename"
+        required
+      />
+
+      <!-- Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </article>
+</section>
+{% endblock %}

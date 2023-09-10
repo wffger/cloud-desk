@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}home{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/home.css') }}" />
+{% endblock %}
+
+{% block aside %}
+{{ super() }}
+
+<script>
+  const activeLink = document.querySelector("aside a#start-link"),
+    parentAccordion = activeLink.closest("details");
+  activeLink.setAttribute("aria-current", "page"),
+    parentAccordion.setAttribute("open", "true");
+</script>
+{% endblock %}
+{% block content %}
+<section>
+  <article>Home start=link!</article>
+</section>
+{% endblock %}

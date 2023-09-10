@@ -1,0 +1,9 @@
+fastapi
+jinja2
+boto3
+botocore
+dynaconf
+fastapi
+jinja2
+python-multipart
+uvicorn

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}S3{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/s3.css') }}" />
+{% endblock %}
+
+{% block aside %}
+{{ super() }}
+<script>
+  const activeLink = document.querySelector("aside a#dynamodb-link"),
+    parentAccordion = activeLink.closest("details");
+  activeLink.setAttribute("aria-current", "page"),
+    parentAccordion.setAttribute("open", "true");
+</script>
+{% endblock %}
+
+{% block content %}
+<section>
+  <article>I'm a AWS DynamoDB!</article>
+</section>
+{% endblock %}
