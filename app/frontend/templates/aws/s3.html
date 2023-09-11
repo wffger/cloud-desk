@@ -13,6 +13,13 @@ super() }}
 <section>
   <article>
     <form method="post" action="/aws/s3/upload" enctype="multipart/form-data">
+      <!-- Switches -->
+      <fieldset>
+        <label for="check_cookie">
+          <input type="checkbox" id="check_cookie" name="check_cookie" role="switch">
+          使用本地Cookie存储的AWS身份
+        </label>
+      </fieldset>
       <!-- File browser -->
       <label for="file"
         >File browser

@@ -13,7 +13,6 @@ from botocore.exceptions import ClientError
 
 from settings.config import env, logger, templates
 
-logger.debug('env.AWS_ACCESS_KEY_ID: ', env.AWS_ACCESS_KEY_ID)
 s3 = boto3.client(
     "s3",
     region_name=env.AWS_REGION_NAME,

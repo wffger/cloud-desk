@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}S3{% endblock %} {% block head %} {{
+super() }}
+<link rel="stylesheet" href="{{ url_for('static', path='/css/base.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', path='/css/s3.css') }}" />
+{% endblock %} {% block aside %} {{ super() }}
+<script>
+  const activeLink = document.querySelector("aside a#aws-link"),
+    parentAccordion = activeLink.closest("details");
+  activeLink.setAttribute("aria-current", "page"),
+    parentAccordion.setAttribute("open", "true");
+</script>
+{% endblock %} {% block content %}
+<section>
+  <article>
+    <form method="post" action="/aws" enctype="application/x-www-form-urlencoded">
+      <label for="aws_access_key_id">
+        AWS ACCESS KEY ID
+        <input type="text" id="aws_access_key_id" name="aws_access_key_id" placeholder="AWS ACCESS KEY ID" required>
+      </label>
+  
+      <label for="aws_secret_access_key">
+        AWS SECRET ACCESS KEY
+        <input type="password" id="aws_secret_access_key" name="aws_secret_access_key" placeholder="AWS SECRET ACCESS KEY" required>
+      </label>
+  
+      <label for="aws_region_name">
+        AWS REGION NAME
+        <input type="text" id="aws_region_name" name="aws_region_name" placeholder="AWS REGION NAME" required>
+      </label>
+
+      <!-- Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </article>
+</section>
+{% endblock %}
