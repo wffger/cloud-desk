@@ -1,5 +1,5 @@
-from dynaconf import Dynaconf
 import logging
+from dynaconf import Dynaconf
 from fastapi.templating import Jinja2Templates
 
 env = Dynaconf(
@@ -7,7 +7,20 @@ env = Dynaconf(
   )
 
 # Set up our logger
-logging.basicConfig(level=logging.INFO)
+match env.LOG_LEVEL.upper():
+    case 'DEBUG':
+        LOG_LVL=logging.DEBUG
+    case 'INFO':
+        LOG_LVL=logging.INFO
+    case 'WARNING':
+        LOG_LVL=logging.WARNING
+    case 'ERROR':
+        LOG_LVL=logging.ERROR
+    case 'CRITICAL':
+        LOG_LVL=logging.CRITICAL
+    case _:
+        LOG_LVL=logging.NOTSET
+logging.basicConfig(level=LOG_LVL)
 logger = logging.getLogger()
 
 # jinja2 template
