@@ -1,7 +1,7 @@
 # Open API parameters
 OPEN_API_TITLE = "API Hub"
 OPEN_API_DESCRIPTION = "Demo API over Postgres database built with FastAPI."
-
+APP_BASE_URL=''
 # Log
 LOG_LEVEL="DEBUG"
 

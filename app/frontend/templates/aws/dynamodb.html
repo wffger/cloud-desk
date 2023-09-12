@@ -3,21 +3,75 @@
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', path='/css/s3.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', path='/css/theme.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', path='/css/tabs.css') }}"/>
 {% endblock %}
 
 {% block aside %}
 {{ super() }}
 <script>
-  const activeLink = document.querySelector("aside a#dynamodb-link"),
-    parentAccordion = activeLink.closest("details");
-  activeLink.setAttribute("aria-current", "page"),
-    parentAccordion.setAttribute("open", "true");
+    const activeLink = document.querySelector("aside a#dynamodb-link"),
+      parentAccordion = activeLink.closest("details");
+    activeLink.setAttribute("aria-current", "page"),
+      parentAccordion.setAttribute("open", "true");
 </script>
+
 {% endblock %}
 
 {% block content %}
-<section>
-  <article>I'm a AWS DynamoDB!</article>
-</section>
+<nav role="tab-control">
+    <ul>
+        <li><label for="tab1">Song</label></li>
+        <li><label for="tab2">Tab 2</label></li>
+        <li><label for="tab3">Initialization </label></li>
+    </ul>
+</nav>
+<div role="tabs">
+    <section>
+        <input hidden="hidden" type="radio" name="tabs" id="tab1" checked="checked"/>
+        <figure>
+            <blockquote>
+                "When you're new to something, you bring an ignorance that can
+                be highly innovative."
+                <footer>
+                    <cite>– Rick Rubin</cite>
+                </footer>
+            </blockquote>
+        </figure>
+
+        <input hidden="hidden" type="radio" name="tabs" id="tab2"/>
+
+        <figure>
+            <blockquote>
+                "Nothing beats a simple worldview. When we know who is the bad
+                guy, the day has structure."
+                <footer>
+                    <cite>– Volker Pispers</cite>
+                </footer>
+            </blockquote>
+        </figure>
+
+        <input hidden="hidden" type="radio" name="tabs" id="tab3"/>
+
+        <figure>
+            <form method="post" action="/aws/dynamodb/init_db" enctype="application/x-www-form-urlencoded">
+                <label for="table_name">
+                    <input
+                            type="text"
+                            id="table_name"
+                            name="table_name"
+                            placeholder="table name"
+                    />
+
+                </label>
+                <button type="submit">Create table in dynamodb</button>
+            </form>
+        </figure>
+    </section>
+</div>
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script src="{{ url_for('static', path='js/tabs.js') }}"></script>
 {% endblock %}

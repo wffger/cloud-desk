@@ -1,3 +1,4 @@
+from settings.config import env, logger, templates
 from typing import Annotated
 from fastapi import (
     APIRouter,
@@ -13,7 +14,6 @@ from fastapi.responses import HTMLResponse
 import boto3
 from botocore.exceptions import ClientError
 
-from settings.config import env, logger, templates
 
 logger.debug(f'env.AWS_ACCESS_KEY_ID: {env.AWS_ACCESS_KEY_ID}')
 

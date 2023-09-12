@@ -1,4 +1,4 @@
-
+from settings.config import env, logger, templates
 from fastapi import (
     APIRouter,
     UploadFile,
@@ -11,8 +11,6 @@ from fastapi.responses import HTMLResponse
 import boto3
 from botocore.exceptions import ClientError
 
-
-from settings.config import env, logger, templates
 
 
 s3 = boto3.client(
