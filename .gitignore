@@ -163,3 +163,5 @@ cython_debug/
 # app senstive data
 # secrets
 *secret*
+.directory
+.idea
