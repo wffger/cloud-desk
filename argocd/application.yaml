@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudesk
+  namespace: argocd
+spec:
+  destination:
+    namespace: cloudesk
+    server: "https://kubernetes.default.svc"
+  project: default
+  source:
+    path: helm
+    repoURL: "https://github.com/wffger/cloud-desk.git"
+    targetRevision: main
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
