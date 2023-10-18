@@ -94,3 +94,11 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+        
+      - name: delete old version images
+        uses: actions/delete-package-versions@v4
+        with: 
+          package-name: 'cloud-desk'
+          package-type: 'container'
+          min-versions-to-keep: 2
+          delete-only-pre-release-versions: "true"
