@@ -100,5 +100,5 @@ jobs:
         with: 
           package-name: 'cloud-desk'
           package-type: 'container'
-          min-versions-to-keep: 3
+          min-versions-to-keep: 4
           delete-only-pre-release-versions: "true"
