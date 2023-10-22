@@ -80,3 +80,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+env:          
+ - name: "AWS_REGION_NAME"
+   value: ""
+ - name: "AWS_ACCESS_KEY_ID"
+   value: ""
+ - name: "AWS_SECRET_ACCESS_KEY"
+   value: ""
+ - name: "AWS_S3_BUCKET"
+   value: ""
