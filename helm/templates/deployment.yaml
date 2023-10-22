@@ -45,6 +45,9 @@ spec:
             httpGet:
               path: /
               port: http
+          envFrom:
+          - secretRef:
+              name: {{ .Release.Name }}-secret
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

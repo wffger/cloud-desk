@@ -4,13 +4,24 @@ metadata:
   name: cloudesk
   namespace: argocd
 spec:
-  destination:
-    namespace: cloudesk
-    server: "https://kubernetes.default.svc"
   project: default
   source:
     path: helm
     repoURL: "https://github.com/wffger/cloud-desk.git"
+    helm:
+      parameters:
+      - name: AWS_REGION_NAME
+        value: ${AWS_REGION_NAME}
+      - name: AWS_ACCESS_KEY_ID
+        value: ${AWS_ACCESS_KEY_ID}
+      - name: AWS_SECRET_ACCESS_KEY
+        value: ${AWS_SECRET_ACCESS_KEY}
+      - name: AWS_S3_BUCKET
+        value: ${AWS_S3_BUCKET}
+
+  destination:
+    namespace: cloudesk
+    server: "https://kubernetes.default.svc"
     targetRevision: main
   syncPolicy:
     automated: {}
