@@ -9,7 +9,7 @@ from routers import (
 )
 from settings.config import env, logger
 import uptrace
-# from opentelemetry import trace
+from opentelemetry import trace
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
 app = FastAPI()
@@ -30,6 +30,6 @@ uptrace.configure_opentelemetry(
     service_version=env.SERVICE_VERSION,
     deployment_environment=env.DEPLOYMENT_ENVIRONMENT,
 )
-# tracer = trace.get_tracer("cloudesk-app", "1.0.0")
+tracer = trace.get_tracer("app_or_package_name", "1.0.0")
 
 FastAPIInstrumentor.instrument_app(app)

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% block head %}
+    <link rel="icon" href="{{ url_for('static', path='/svg/cloudesk-logo.svg') }}" sizes="32x32" />
     <link rel="stylesheet" href="{{ url_for('static', path='/picocss/pico.min.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', path='/picocss/pico.docs.min.css') }}" />
     <title>{% block title %}{% endblock %} - Cloud Desk</title>

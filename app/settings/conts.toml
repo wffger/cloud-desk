@@ -1,9 +1,11 @@
+[default]
 # Open API parameters
 OPEN_API_TITLE = "API Hub"
 OPEN_API_DESCRIPTION = "Demo API over Postgres database built with FastAPI."
 
 # Log
-LOG_LEVEL="DEBUG"
+## DEBUG,INFO,WARNING,ERROR,CRITICAL,NOTSET
+LOG_LEVEL="INFO"
 
 # Authentication service constants
 AUTH_TAGS = ["Authentication"]

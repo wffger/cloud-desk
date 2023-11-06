@@ -4,7 +4,10 @@ from dynaconf import Dynaconf
 from fastapi.templating import Jinja2Templates
 
 env = Dynaconf(
-  settings_files=['settings/conts.toml', 'settings/.secrets.toml']
+  settings_files=['settings/conts.toml', 'settings/.secrets.toml'],
+  environments=True,
+  default_env="default",
+  env="development"
   )
 
 if not os.path.exists('settings/.secrets.toml'):
